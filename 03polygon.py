@@ -13,3 +13,5 @@ cv2.rectangle(img, (450, 200), (200, 450), (0,0,255), -1)
 cv2.imshow('polygon', img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+# 2024-9 원 그리기
