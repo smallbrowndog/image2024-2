@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 
+
 img_file = './img/girl.jpg'
 img = cv2.imread(img_file)
 print(img.shape)

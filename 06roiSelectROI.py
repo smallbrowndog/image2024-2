@@ -3,7 +3,6 @@
 # 개략적인 얼개만 보인다
 import cv2
 
-
 def onMouse(event, x, y, flags, param):
     if(event == cv2.EVENT_LBUTTONDOWN):
         print('Lbutton down')
