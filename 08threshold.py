@@ -11,10 +11,34 @@ import matplotlib.pylab as plt
 # 127로 중간 숫자를 고정
 
 img = cv2.imread('./img/gray_gradient.jpg', cv2.IMREAD_GRAYSCALE)
-# 여기서 이미지의 색상코드를 0으로 바꿔서 검은색으로 바꿈 
+# 여기서 이미지의 색상코드를 0으로 바꿔서 검은색으로 바꿈
 thres_np = np.zeros_like(img)
 # 127색을 기준으로 색 나누기
-thres_np[img > 127] = 255
+# thres_np[img > 127] = 255
+
+# 4가지 단계로 나누기 1번째 방법
+# thres_np[(img < 128) & (img >= 64)] = 64
+# thres_np[(img < 191) & (img >= 128)] = 171
+# thres_np[(img < 256) & (img >= 192)] = 255
+
+# 4가지 단계로 나누기 2번째 방법
+# thres_np = np.zeros_like(img)
+# thres_np[img > 64] = 64
+# thres_np[img > 128] = 128
+# thres_np[img > 192] = 255
+
+# 4가지 단계로 나누기 3번째 방법
+thres_np = np.zeros_like(img)
+xsize, ysize = img.shape
+for x in range(xsize):
+    for y in range(ysize):
+        if(img[x,y] > 64):
+            thres_np[x,y] = 64
+        if(img[x,y] > 128):
+            thres_np[x,y] = 128
+        if(img[x,y] > 192):
+            thres_np[x,y] = 255
+
 # 위와 같은 역할을 함
 _, thres_cv = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)
 # print(ret)
