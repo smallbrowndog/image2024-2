@@ -49,6 +49,7 @@ draw.text((250, 600), "김기주 중간과제", font=font , fill=(0, 255, 255))
 # 다시 OpenCV 형식으로 변환
 img = np.array(img_pil)
 
+cv2.imwrite('./Middle.png', img)
 
 cv2.imshow('gray', img)
 cv2.waitKey()
