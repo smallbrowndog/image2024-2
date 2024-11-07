@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from retinaface import RetinaFace
 
 # 원본 이미지 로드
-img_path = './img/man_face.jpg'
+img_path = './img/graduate.jpg'
 img = cv2.imread(img_path)
 
 retina_img = RetinaFace.detect_faces(img_path)
