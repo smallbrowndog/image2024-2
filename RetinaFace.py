@@ -11,8 +11,8 @@ img = cv2.imread(img_path)
 retina_img = RetinaFace.detect_faces(img_path)
 
 print(retina_img)
-for face in retina_img.keys():
-    face_info = retina_img[face]
+for i in retina_img.keys():
+    face_info = retina_img[i]
     facial_area = face_info['facial_area']
     x1, y1, x2, y2 = facial_area
 
