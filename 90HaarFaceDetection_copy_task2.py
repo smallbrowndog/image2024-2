@@ -19,8 +19,7 @@ if retina_img == {}:
     print("얼굴이 인식되지 않았습니다")
 else:
     for face in retina_img.keys():
-        face_info = retina_img[face]
-        facial_area = face_info['facial_area']
+        facial_area = retina_img[face]['facial_area']
         x1, y1, x2, y2 = facial_area
 
         # 사각형으로 얼굴 표시
