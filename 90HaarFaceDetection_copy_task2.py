@@ -25,6 +25,8 @@ else:
         # 사각형으로 얼굴 표시
         cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255), 3)
 
+        cv2.putText(img, f"SCORE: {round(retina_img[face]['score'], 7)}", (x1, y1), cv2.FONT_HERSHEY_DUPLEX, 0.6, (0, 0, 0))
+
     cv2.imshow('gray', img)
     cv2.waitKey()
     cv2.destroyAllWindows()
