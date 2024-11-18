@@ -26,7 +26,7 @@ blured = cv2.filter2D(img, -1, kernel)
 k1 = np.array([[1,2,1],
                [2,4,2],
                [1,2,1]]) / 16
-print(f'k2: \n{k1}')
+print(f'k1: \n{k1}')
 
 k2 = cv2.getGaussianKernel(5, 0)
 # k1 = np.array([[1,2,1]]) / 4 의 방식과 동일하다고 볼 수 있음, 하지만 ksize가 커질수록 수를 입력하고 나눠주기 번거롭기때문에 Gaussian을 사용하는것
@@ -37,16 +37,20 @@ k1Img = cv2.filter2D(img, -1, k1)
 # [[0.25]
 #  [0.5 ]
 #  [0.25]]
-# 위를 [[0.25 0.5  0.25]] 이처럼 변경한것이다
+#         를 [[0.25 0.5  0.25]] 처럼 변경한것이다
 k2Img = cv2.filter2D(img, -1, k2 * k2.T)
 print(f'k2 * k2.T: \n{k2 * k2.T}')
 
+# 모든 값들을 정렬해서 가운데 값만 취해서 변환하는것
 k3Img = cv2.medianBlur(img, 5)
+# 기존의 blur는 주변(1의 범위)에 따라
+k4Img = cv2.bilateralFilter(img, 5, 75, 75)
 
 cv2.imshow('noise', img)
 cv2.imshow('blur', blured)
 cv2.imshow('k1', k1Img)
 cv2.imshow('k2', k2Img)
 cv2.imshow('median', k3Img)
+cv2.imshow('bilateral', k4Img)
 cv2.waitKey()
 cv2.destroyAllWindows()
