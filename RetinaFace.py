@@ -19,6 +19,11 @@ for i in retina_img.keys():
     # 사각형으로 얼굴 표시
     cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255), 3)
 
+    # # print(eyes)
+    # for ex, ey, ew, eh in facial_area:
+    #     # 타원
+    #     cv2.ellipse(img, (int((ex + x1)*2 + ew / 2) - (ex + x1), int((ey + y1)*2 + eh / 2) - (ey + y1)), (20,10), 0, 0, 360, (0,255,0), 2)
+
 # for face in faces:
 #   plt.imshow(face)
 #   plt.show()
