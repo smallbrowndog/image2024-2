@@ -11,7 +11,7 @@ if w and h:
     img[y:y+h, x:x+w] = roi
     cv2.imshow('mosaic', img)
 
-cv2.waitKey(0)
+cv2.waitKey()
 cv2.destroyAllWindows()
 
 while True:
@@ -25,5 +25,5 @@ while True:
     else:
         break
 
-cv2.waitKey(0)
+cv2.waitKey()
 cv2.destroyAllWindows()
